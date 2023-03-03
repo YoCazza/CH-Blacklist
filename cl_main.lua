@@ -18,15 +18,15 @@ end
 
 function checkCar(car)
 	if not bypass then
-	if car then
-		carModel = GetEntityModel(car)
-		carName = GetDisplayNameFromVehicleModel(carModel)
+		if car then
+			carModel = GetEntityModel(car)
+			carName = GetDisplayNameFromVehicleModel(carModel)
 
-		if isCarBlacklisted(carModel) then
-			_DeleteEntity(car)
-			ShowMessage(CH.VehicleIsBlacklisted)
+			if isCarBlacklisted(carModel) then
+				_DeleteEntity(car)
+				ShowMessage(CH.VehicleIsBlacklisted)
+			end
 		end
-	end
 	end
 end
 
@@ -36,7 +36,6 @@ function isCarBlacklisted(model)
 			return true
 		end
 	end
-
 	return false
 end
 
@@ -50,22 +49,21 @@ function isWeaponBlacklisted(model)
 			return true
 		end
 	end
-
 	return false
 end
 
 RegisterCommand(CH.BlacklistBypassCommand, function(source, args, rawCommand)
 	if allowedToUse then
-	if not bypass then
-	bypass = true
-	ShowMessage(CH.BlacklistBypassON)
-	elseif bypass then
-	bypass = false
-	ShowMessage(CH.BlacklistBypassOFF)
+		if not bypass then
+			bypass = true
+			ShowMessage(CH.BlacklistBypassON)
+		elseif bypass then
+			bypass = false
+			ShowMessage(CH.BlacklistBypassOFF)
+		end
+	else
+		ShowMessage(CH.BlacklistNoPerms)
 	end
-else
-	ShowMessage(CH.BlacklistNoPerms)
-end
 end)
 
 Citizen.CreateThread(function()
@@ -86,16 +84,15 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Wait(200)
-
 		playerPed = GetPlayerPed(-1)
 		if playerPed then
 			nothing, weapon = GetCurrentPedWeapon(playerPed, true)
-				if not bypass then
+			if not bypass then
 				if isWeaponBlacklisted(weapon) then
 					RemoveWeaponFromPed(playerPed, weapon)
 					ShowMessage(CH.WeaponIsBlacklisted)
 				end
 			end
 		end
-end
+	end
 end)
