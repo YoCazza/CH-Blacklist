@@ -10,19 +10,11 @@ AddEventHandler("ch_checkperms.returnIsAllowed", function(isAllowed)
     allowedToUse = isAllowed
 end)
 
-RegisterCommand(CH.BlacklistBypassCommand, function(source, args, rawCommand)
-	if allowedToUse then
-	if not bypass then
-	bypass = true
-	ShowMessage("~g~Blacklist bypass aan")
-	elseif bypass then
-	bypass = false
-	ShowMessage("~r~Blacklist bypass uit")
-	end
-else
-	ShowMessage("~r~Je hebt hier geen permissies voor")
+function ShowMessage(text)
+	BeginTextCommandThefeedPost("STRING")
+	AddTextComponentSubstringPlayerName(text)
+	EndTextCommandThefeedPostTicker(true, false)
 end
-end)
 
 function checkCar(car)
 	if not bypass then
@@ -32,7 +24,7 @@ function checkCar(car)
 
 		if isCarBlacklisted(carModel) then
 			_DeleteEntity(car)
-			ShowMessage("Dit voertuig staat in onze ~r~blacklist~s~, probeer een ander voertuig")
+			ShowMessage(CH.VehicleIsBlacklisted)
 		end
 	end
 	end
@@ -48,12 +40,6 @@ function isCarBlacklisted(model)
 	return false
 end
 
-function ShowMessage(text)
-	BeginTextCommandThefeedPost("STRING")
-	AddTextComponentSubstringPlayerName(text)
-	EndTextCommandThefeedPostTicker(true, false)
-end
-
 function _DeleteEntity(entity)
 	Citizen.InvokeNative(0xAE3CBE5BF394C9C9, Citizen.PointerValueIntInitialized(entity))
 end
@@ -67,6 +53,20 @@ function isWeaponBlacklisted(model)
 
 	return false
 end
+
+RegisterCommand(CH.BlacklistBypassCommand, function(source, args, rawCommand)
+	if allowedToUse then
+	if not bypass then
+	bypass = true
+	ShowMessage(CH.BlacklistBypassON)
+	elseif bypass then
+	bypass = false
+	ShowMessage(CH.BlacklistBypassOFF)
+	end
+else
+	ShowMessage(CH.BlacklistNoPerms)
+end
+end)
 
 Citizen.CreateThread(function()
 	while true do
@@ -93,7 +93,7 @@ Citizen.CreateThread(function()
 				if not bypass then
 				if isWeaponBlacklisted(weapon) then
 					RemoveWeaponFromPed(playerPed, weapon)
-					ShowMessage("Dit wapen staat in onze ~r~blacklist~s~, probeer een ander wapen")
+					ShowMessage(CH.WeaponIsBlacklisted)
 				end
 			end
 		end
