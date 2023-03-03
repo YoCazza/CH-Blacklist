@@ -13,8 +13,8 @@ CH.BlacklistBypassOFF = "Blacklist bypass ~r~OFF~s~."
 CH.VehicleIsBlacklisted = "This vehicle is ~r~blacklisted~s~."
 CH.WeaponIsBlacklisted = "This weapon is ~r~blacklisted~s~."
 
+-- The weapons that you want to blacklist.
 CH.BlacklistWeapons = {
-    "WEAPON_MINIGUN",
 	"WEAPON_EMPLAUNCHER",
 	"WEAPON_RAYMINIGUN",
 	"WEAPON_COMPACTLAUNCHER",
@@ -35,14 +35,10 @@ CH.BlacklistWeapons = {
 	"WEAPON_RAYPISTOL",
 	"WEAPON_FLAREGUN",
 	"WEAPON_FLARE",
-	"WEAPON_SNIPERRIFLE",
-	"WEAPON_HEAVYSNIPER",
-	"WEAPON_HEAVYSNIPER_MK2",
-	"WEAPON_MARKSMANRIFLE",
-	"WEAPON_MARKSMANRIFLE_MK2"
 }
 
+-- The vehicles that you want to blacklist.
 CH.BlacklistVehicles = {
     "lazer",
-    "rmode63s"
+    "jet",
 }
