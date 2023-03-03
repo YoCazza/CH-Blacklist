@@ -1,11 +1,17 @@
 CH = {}
 
-CH.BlacklistAcePermsName = "CH."
-CH.BlacklistBypassCommand = "bypassblacklist"
+-- This will be the ACE Perms name for your group(s).
+CH.BlacklistAcePermsName = "CH.bypass"
 
+-- This will be your in-game slash command.
+CH.BlacklistBypassCommand = "toggleblacklist"
 
--- language
+-- language (standard: ENG)
 CH.BlacklistNoPerms = "You dont have the right permissions to use this command."
+CH.BlacklistBypassON = "Blacklist bypass ~g~ON~s~."
+CH.BlacklistBypassOFF = "Blacklist bypass ~r~OFF~s~."
+CH.VehicleIsBlacklisted = "This vehicle is ~r~blacklisted~s~."
+CH.WeaponIsBlacklisted = "This weapon is ~r~blacklisted~s~."
 
 CH.BlacklistWeapons = {
     "WEAPON_MINIGUN",
