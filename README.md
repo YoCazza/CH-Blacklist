@@ -2,14 +2,17 @@
 # CH-Blacklist
 This FiveM resource is an **optimized version** of [kheire007/esx_blacklist](https://github.com/kheire007/esx_blacklist), my version does not include the pedblacklist and is more advanced to bypass the blacklist with a command.
 
+⚠️ **Please read:**
+If you use this FiveM Resource i highly recommend to change the folder name to something unique that will not be noticed.
+
 ## **This FiveM resource is currently in beta.**
 
 * Easy configuration with instructions in config.lua
 * Blacklist vehicles and weapons.
 * Client Resmon idle: 0.00ms.
 * Client Resmon on remove: *Still checking..*
-* Checks every 0.5 seconds if a players has a blacklisted weapon in his hands.
-* Checks every 0.5 seconds if a players is a driver in a blacklisted vehicle.
+* Checks every 0.5 seconds if a player has a blacklisted weapon equipped.
+* Checks every 0.5 seconds if a player is a driver in a blacklisted vehicle.
 * **This resource is working with ESX and Ace Perms.**
 
 ### **How to use:**
@@ -28,4 +31,4 @@ add_ace group.admin CH.Bypass allow
 Standard command if CH.Bypass is allowed on your group: /toggleb
 
 ### **Video Showcase:**
-*comming soon..*
+*Comming soon..*
