@@ -5,7 +5,7 @@ This FiveM resource is an **optimized version** of [kheire007/esx_blacklist](htt
 ⚠️ **Please read:**
 If you use this FiveM Resource i highly recommend to change the folder name to something unique that will not be noticed.
 
-## **This FiveM resource is currently in beta.**
+## **Information:**
 
 * Easy configuration with instructions in config.lua
 * Blacklist vehicles and weapons.
