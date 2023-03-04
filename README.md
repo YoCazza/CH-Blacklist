@@ -10,7 +10,7 @@ If you use this FiveM Resource i highly recommend to change the folder name to s
 * Easy configuration with instructions in config.lua
 * Blacklist vehicles and weapons.
 * Client Resmon idle: 0.00ms.
-* Client Resmon on remove: *Still checking..*
+* Client Resmon on vehicle or weapon remove: 0.01ms
 * Checks every 0.5 seconds if a player has a blacklisted weapon equipped.
 * Checks every 0.5 seconds if a player is a driver in a blacklisted vehicle.
 * **This resource is working with ESX and Ace Perms.**
