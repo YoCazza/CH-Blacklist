@@ -31,4 +31,4 @@ add_ace group.admin CH.Bypass allow
 Standard command if CH.Bypass is allowed on your group: /toggleb
 
 ### **Video Showcase:**
-*Comming soon..*
+[YouTube - CH-Blacklist](https://www.youtube.com/watch?v=zqaLESQZ98o)
