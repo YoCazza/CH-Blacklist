@@ -68,7 +68,7 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-		Wait(200)
+		Wait(500)
 		if IsPedInAnyVehicle(GetPlayerPed(-1)) then
 		v = GetVehiclePedIsIn(playerPed, false)
 		end
@@ -83,7 +83,7 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-		Wait(200)
+		Wait(500)
 		playerPed = GetPlayerPed(-1)
 		if playerPed then
 			nothing, weapon = GetCurrentPedWeapon(playerPed, true)
