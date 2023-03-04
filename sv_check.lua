@@ -13,7 +13,7 @@ AddEventHandler('onResourceStart', function(resourceName)
       return
     end
     Wait(5000)
-    fnames = "CH-Blacklist", "Blacklist", "blacklist", "black-list"
+    fnames = "CH-Blacklist", "Blacklist", "blacklist", "black-list", "CH-Blacklist-main"
     if resourceName == fnames then
       print("[^1WARNING^0] : We recommend changing the folder name, hackers can easily view folders and stop them, change the folder name to something unique that will not be noticed.")
     end
