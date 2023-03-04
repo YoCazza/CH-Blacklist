@@ -4,7 +4,7 @@ CH = {}
 CH.BlacklistAcePermsName = "CH.bypass"
 
 -- This will be your in-game slash command.
-CH.BlacklistBypassCommand = "toggleblacklist"
+CH.BlacklistBypassCommand = "toggleb"
 
 -- language (standard: ENG)
 CH.BlacklistNoPerms = "You dont have the right permissions to use this command."
