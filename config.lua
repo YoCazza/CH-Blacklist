@@ -1,8 +1,8 @@
 CH = {}
 
 -- This will be the ACE Perms name for your group(s).
-CH.AcePermsVehicle = "CH.bypass"
-CH.AcePermsWeapon = "CH.bypass"
+CH.AcePermsVehicle = "CH.bypassveh"
+CH.AcePermsWeapon = "CH.bypasswep"
 
 -- This will be your in-game slash command.
 CH.BlacklistBypassVehiclesCommand = "bypassvehicles"
