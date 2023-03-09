@@ -1,13 +1,13 @@
-local allowedToUse = false
-local bypass = false
+local allowedToUsevehveh = false
+local bypassveh = false
 
 Citizen.CreateThread(function()
-	TriggerServerEvent("ch_checkperms:isAllowed")
+	TriggerServerEvent("ch_checkperms_veh:isAllowed")
 end)
 
-RegisterNetEvent("ch_checkperms.returnIsAllowed")
-AddEventHandler("ch_checkperms.returnIsAllowed", function(isAllowed)
-    allowedToUse = isAllowed
+RegisterNetEvent("ch_checkperms_veh.returnIsAllowed")
+AddEventHandler("ch_checkperms_veh.returnIsAllowed", function(isAllowed)
+    allowedToUseveh = isAllowed
 end)
 
 function ShowMessage(text)
@@ -17,7 +17,7 @@ function ShowMessage(text)
 end
 
 function checkCar(car)
-	if not bypass then
+	if not bypassveh then
 		if car then
 			carModel = GetEntityModel(car)
 			carName = GetDisplayNameFromVehicleModel(carModel)
@@ -43,23 +43,30 @@ function _DeleteEntity(entity)
 	Citizen.InvokeNative(0xAE3CBE5BF394C9C9, Citizen.PointerValueIntInitialized(entity))
 end
 
-function isWeaponBlacklisted(model)
-	for _, blacklistedWeapon in pairs(CH.BlacklistWeapons) do
-		if model == GetHashKey(blacklistedWeapon) then
-			return true
-		end
+function CheckVehicleBlacklist()
+	cars = CH.BlacklistVehicles
+	for i, cars in pairs(cars) do
+		print("- "..cars)
 	end
-	return false
 end
 
-RegisterCommand(CH.BlacklistBypassCommand, function(source, args, rawCommand)
-	if allowedToUse then
-		if not bypass then
-			bypass = true
-			ShowMessage(CH.BlacklistBypassON)
-		elseif bypass then
-			bypass = false
-			ShowMessage(CH.BlacklistBypassOFF)
+-- Prints blacklisted vehicles in client console.
+RegisterCommand(CH.BlacklistPrintBlacklistedVehicles, function(source, args, rawCommand)
+	if allowedToUseveh then
+		CheckVehicleBlacklist()
+	else
+		ShowMessage(CH.BlacklistNoPerms)
+	end
+end)
+
+RegisterCommand(CH.BlacklistBypassVehiclesCommand, function(source, args, rawCommand)
+	if allowedToUseveh then
+		if not bypassveh then
+			bypassveh = true
+			ShowMessage(CH.BlacklistBypassVehON)
+		elseif bypassveh then
+			bypassveh = false
+			ShowMessage(CH.BlacklistBypassVehOFF)
 		end
 	else
 		ShowMessage(CH.BlacklistNoPerms)
@@ -76,22 +83,6 @@ Citizen.CreateThread(function()
 		if playerPed and v then
 		if GetPedInVehicleSeat(v, -1) == playerPed then
 			checkCar(GetVehiclePedIsIn(playerPed, false))
-			end
-		end
-	end
-end)
-
-Citizen.CreateThread(function()
-	while true do
-		Wait(500)
-		playerPed = GetPlayerPed(-1)
-		if playerPed then
-			nothing, weapon = GetCurrentPedWeapon(playerPed, true)
-			if not bypass then
-				if isWeaponBlacklisted(weapon) then
-					RemoveWeaponFromPed(playerPed, weapon)
-					ShowMessage(CH.WeaponIsBlacklisted)
-				end
 			end
 		end
 	end

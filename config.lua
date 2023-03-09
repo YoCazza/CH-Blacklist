@@ -1,16 +1,27 @@
 CH = {}
 
 -- This will be the ACE Perms name for your group(s).
-CH.BlacklistAcePermsName = "CH.bypass"
+CH.AcePermsVehicle = "CH.bypass"
+CH.AcePermsWeapon = "CH.bypass"
 
 -- This will be your in-game slash command.
-CH.BlacklistBypassCommand = "toggleb"
+CH.BlacklistBypassVehiclesCommand = "bypassvehicles"
+CH.BlacklistBypassWeaponsCommand = "bypassweapons"
 
--- language (standard: ENG)
+-- This will be your in-game slash command to print all the vehicles or weapons in client console (F8)
+-- The command will only work if you have the bypass ace perms.
+CH.BlacklistPrintBlacklistedVehicles = "printblacklistedvehicles"
+CH.BlacklistPrintBlacklistedWeapons = "printblacklistedweapons"
+
+-- Language Vehicles (standard: ENG)
 CH.BlacklistNoPerms = "You dont have the right permissions to use this command."
-CH.BlacklistBypassON = "Blacklist bypass ~g~ON~s~."
-CH.BlacklistBypassOFF = "Blacklist bypass ~r~OFF~s~."
+CH.BlacklistBypassVehON = "Vehicle bypass ~g~ON~s~."
+CH.BlacklistBypassVehOFF = "Vehicle bypass ~r~OFF~s~."
 CH.VehicleIsBlacklisted = "This vehicle is ~r~blacklisted~s~."
+
+-- Language Weapons (standard: ENG)
+CH.BlacklistBypassWepON = "Weapon bypass ~g~ON~s~."
+CH.BlacklistBypassWepOFF = "Weapon bypass ~r~OFF~s~."
 CH.WeaponIsBlacklisted = "This weapon is ~r~blacklisted~s~."
 
 -- The weapons that you want to blacklist.
