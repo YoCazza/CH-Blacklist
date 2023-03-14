@@ -32,3 +32,5 @@ Standard command if CH.Bypass is allowed on your group: /toggleb
 
 ### **Video Showcase:**
 [YouTube - CH-Blacklist](https://www.youtube.com/watch?v=zqaLESQZ98o)
+
+*Dont re-upload or sell any (edited) version of CH-Blacklist without permissions.*
