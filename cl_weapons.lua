@@ -51,7 +51,7 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-		Wait(500)
+		Wait(CH.CheckTime)
 		playerPed = GetPlayerPed(-1)
 		if playerPed then
 			nothing, weapon = GetCurrentPedWeapon(playerPed, true)

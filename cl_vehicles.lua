@@ -75,7 +75,7 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-		Wait(500)
+		Wait(CH.CheckTime)
 		if IsPedInAnyVehicle(GetPlayerPed(-1)) then
 		v = GetVehiclePedIsIn(playerPed, false)
 		end
