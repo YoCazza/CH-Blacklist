@@ -13,6 +13,10 @@ CH.BlacklistBypassWeaponsCommand = "bypassweapons"
 CH.BlacklistPrintBlacklistedVehicles = "printblacklistedvehicles"
 CH.BlacklistPrintBlacklistedWeapons = "printblacklistedweapons"
 
+-- This is the time that the resource checks if you in a blacklisted vehicle or have a blacklisted weapon.
+-- The lower it is, the more performance it takes. 
+CH.CheckTime = 1500 -- 1.5 seconds (from my experience)
+
 -- Language Vehicles (standard: ENG)
 CH.BlacklistNoPerms = "You dont have the right permissions to use this command."
 CH.BlacklistBypassVehON = "Vehicle bypass ~g~ON~s~."
