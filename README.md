@@ -1,4 +1,4 @@
-![blacklistpreviewbig|690x388](https://cdn.discordapp.com/attachments/1078248796896641145/1081590528249958450/blacklistpreviewbig.png)
+![blacklistpreviewbig|690x388](https://cdn.discordapp.com/attachments/1108674285100355584/1108676205328212068/youtube-banner-generator-featuring-a-tiktok-clipart-button-2740cc-5059_5.png)
 # CH-Blacklist
 This FiveM resource is an **optimized version** of [kheire007/esx_blacklist](https://github.com/kheire007/esx_blacklist), my version does not include the pedblacklist and is more advanced to bypass the blacklist with a command.
 
