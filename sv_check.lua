@@ -1,3 +1,4 @@
+-- Ace perms permission checker for vehicles
 RegisterServerEvent("ch_checkperms_veh:isAllowed")
 AddEventHandler("ch_checkperms_veh:isAllowed", function()
     if IsPlayerAceAllowed(source, CH.AcePermsVehicle) then
@@ -7,6 +8,7 @@ AddEventHandler("ch_checkperms_veh:isAllowed", function()
     end
 end)
 
+-- Ace perms permission checker for weapons
 RegisterServerEvent("ch_checkperms_wep:isAllowed")
 AddEventHandler("ch_checkperms_wep:isAllowed", function()
     if IsPlayerAceAllowed(source, CH.AcePermsWeapon) then
