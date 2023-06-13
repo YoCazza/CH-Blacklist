@@ -1,34 +1,48 @@
 CH = {}
 
--- This will be the ACE Perms name for your group(s).
-CH.AcePermsVehicle = "CH.bypassveh"
-CH.AcePermsWeapon = "CH.bypasswep"
+--░█████╗░██████╗░████████╗██╗░█████╗░███╗░░██╗░██████╗
+--██╔══██╗██╔══██╗╚══██╔══╝██║██╔══██╗████╗░██║██╔════╝
+--██║░░██║██████╔╝░░░██║░░░██║██║░░██║██╔██╗██║╚█████╗░
+--██║░░██║██╔═══╝░░░░██║░░░██║██║░░██║██║╚████║░╚═══██╗
+--╚█████╔╝██║░░░░░░░░██║░░░██║╚█████╔╝██║░╚███║██████╔╝
+--░╚════╝░╚═╝░░░░░░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝╚═════╝░
+CH.AcePermsVehicle = "CH.bypassveh"  -- Your ace perms vehicle bypass name.
+CH.AcePermsWeapon = "CH.bypasswep" -- Your ace perms weapon bypass name.
+CH.CheckTime = 250 -- The time for checking if a player has a blacklisted weapon / vehicle.
 
--- This will be your in-game slash command.
-CH.BlacklistBypassVehiclesCommand = "bypassvehicles"
-CH.BlacklistBypassWeaponsCommand = "bypassweapons"
+--░█████╗░░█████╗░███╗░░░███╗███╗░░░███╗░█████╗░███╗░░██╗██████╗░░██████╗
+--██╔══██╗██╔══██╗████╗░████║████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║██╔████╔██║██╔████╔██║███████║██╔██╗██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚████║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██║░╚═╝░██║██║░╚═╝░██║██║░░██║██║░╚███║██████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░╚═════╝░
+CH.BlacklistBypassVehiclesCommand = "bypass-v" -- With this command you have a bypass so you can drive in every blacklisted vehicle.
+CH.BlacklistBypassWeaponsCommand = "bypass-w" -- With this command you have a bypass so you can shoot every blacklisted weapon.
+CH.BlacklistPrintBlacklistedVehicles = "print-v" -- With this command all the blacklisted vehicles will be printed in you F8 console.
+CH.BlacklistPrintBlacklistedWeapons = "print-w" -- With this command all the blacklisted weapons will be printed in you F8 console.
 
--- This will be your in-game slash command to print all the vehicles or weapons in client console (F8)
--- The command will only work if you have the bypass ace perms.
-CH.BlacklistPrintBlacklistedVehicles = "printblacklistedvehicles"
-CH.BlacklistPrintBlacklistedWeapons = "printblacklistedweapons"
+--██╗░░░░░░█████╗░███╗░░██╗░██████╗░██╗░░░██╗░█████╗░░██████╗░███████╗
+--██║░░░░░██╔══██╗████╗░██║██╔════╝░██║░░░██║██╔══██╗██╔════╝░██╔════╝
+--██║░░░░░███████║██╔██╗██║██║░░██╗░██║░░░██║███████║██║░░██╗░█████╗░░
+--██║░░░░░██╔══██║██║╚████║██║░░╚██╗██║░░░██║██╔══██║██║░░╚██╗██╔══╝░░
+--███████╗██║░░██║██║░╚███║╚██████╔╝╚██████╔╝██║░░██║╚██████╔╝███████╗
+--╚══════╝╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░░╚═════╝░╚═╝░░╚═╝░╚═════╝░╚══════╝
+CH.ShowNotifyOnDelete = true -- Show notifications on weapon / vehicle delete?
+CH.vBypassOn = "Vehicle bypass on"
+CH.vBypassOff = "Vehicle bypass off"
+CH.wBypassOn = "Weapon bypass on"
+CH.wBypassOff = "Weapon bypass off"
+CH.NoPerms = "You dont have permissions for this command!"
+CH.vBlacklisted = "This vehicle is blacklisted"
+CH.wBlacklisted = "This weapon is blacklisted"
 
--- This is the time that the resource checks if you in a blacklisted vehicle or have a blacklisted weapon.
--- The lower it is, the more performance it takes. 
-CH.CheckTime = 800 -- 0.8 seconds (from my experience)
-
--- Language Vehicles (standard: ENG)
-CH.BlacklistNoPerms = "You dont have the right permissions to use this command."
-CH.BlacklistBypassVehON = "Vehicle bypass ~g~ON~s~."
-CH.BlacklistBypassVehOFF = "Vehicle bypass ~r~OFF~s~."
-CH.VehicleIsBlacklisted = "This vehicle is ~r~blacklisted~s~."
-
--- Language Weapons (standard: ENG)
-CH.BlacklistBypassWepON = "Weapon bypass ~g~ON~s~."
-CH.BlacklistBypassWepOFF = "Weapon bypass ~r~OFF~s~."
-CH.WeaponIsBlacklisted = "This weapon is ~r~blacklisted~s~."
-
--- The weapons that you want to blacklist.
+--██████╗░██╗░░░░░░█████╗░░█████╗░██╗░░██╗██╗░░░░░██╗░██████╗████████╗
+--██╔══██╗██║░░░░░██╔══██╗██╔══██╗██║░██╔╝██║░░░░░██║██╔════╝╚══██╔══╝
+--██████╦╝██║░░░░░███████║██║░░╚═╝█████═╝░██║░░░░░██║╚█████╗░░░░██║░░░
+--██╔══██╗██║░░░░░██╔══██║██║░░██╗██╔═██╗░██║░░░░░██║░╚═══██╗░░░██║░░░
+--██████╦╝███████╗██║░░██║╚█████╔╝██║░╚██╗███████╗██║██████╔╝░░░██║░░░
+--╚═════╝░╚══════╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝╚═════╝░░░░╚═╝░░░
+-- Weapons
 CH.BlacklistWeapons = {
 	"WEAPON_EMPLAUNCHER",
 	"WEAPON_RAYMINIGUN",
@@ -52,8 +66,257 @@ CH.BlacklistWeapons = {
 	"WEAPON_FLARE",
 }
 
--- The vehicles that you want to blacklist.
+-- Vehicles
 CH.BlacklistVehicles = {
-    "lazer",
-    "jet",
+	"jet",
+	"estep",
+	"tr2",
+	"rhino",
+	"khanjali",
+	"apc",
+	"stockade3",
+	"barrage",
+	"chernobog",
+	"halftrack",
+	"minitank",
+	"savestra",
+	"scarab",
+	"scarab2",
+	"rmodmonstergt",
+	"scarab3",
+	"thruster",
+	"trailersmall2",
+	"blimp",
+	"blimp2",
+	"blimp3",
+	"seasparrow2",
+	"cargoplane",
+	"lazer",
+	"strikeforce",
+	"titan",
+	"volatol",
+	"deathbike",
+	"stockade",
+	"biome",
+	"deathbike2",
+	"deathbike3",
+	"s500w223",
+	"oppressor",
+	"oppressor2",
+	"miljet",
+	"kosatka",
+	"hydra",
+	"buzzard",
+	"rmodtracktor2",
+	"deluxo",
+	"dump",
+	"cerberus",
+	"bombushka",
+	"cutter",
+	"handler",
+	"armytrailer",
+	"armytrailer2",
+	"freighttrailer",
+	"armytrailer3",
+	"tug",
+	"hunter",
+	"nightshark",
+	"rcbandito",
+	"tula",
+	"cargobob",
+	"cablecar",
+	"freight",
+	"freightcar",
+	"freightcont1",
+	"coach",
+	"freightcont2",
+	"freightgrain",
+	"metrotrain",
+	"tankercar",
+	"cerberus2",
+	"cerberus3",
+	"hauler2",
+	"phantom2",
+	"alkonost",
+	"avenger2",
+	"avenger",
+	"besra",
+	"mogul",
+	"molotok",
+	"akula",
+	"annihilator",
+	"annihilator2",
+	"buzzard2",
+	"cargobob2",
+	"cargobob3",
+	"cargobob4",
+	"savage",
+	"skylift",
+	"valkyrie",
+	"valkyrie2",
+	"boxville5",
+	"tanker2",
+	"pyro",
+	"straling",
+	"ruiner2",
+	"vigilante",
+	"scramjet",
+	"dinghy5",
+	"toreador",
+	"stromberg",
+	"menacer",
+	"riot2",
+	"zr3802",
+	"brutus",
+	"imperator",
+	"bruiser",
+	"starling",
+	"dune3",
+	"dune4",
+	"dune5",
+	"seasparrow",
+	"rogue",
+	"patrolboat",
+    "technical",
+    "technical3",
+    "insurgent3",
+    "limo3",
+    "monster",
+    "limo2",
+    "technical2",
+    "speedo4",
+    "caracara",
+    "blazer5",
+    "avashut",
+    "lazer2",
+    "bahia",
+    "voltic2",
+    "missouri",
+    "ah64d",
+    "amels200",
+    "victory",
+    "armed",
+    "falcon",
+    "ah6",
+    "p1",
+    "nokota",
+    "mh60l",
+    "rmodmonster",
+    "rmodmonsterr34",
+    "dababycar",
+    "kuruma2",
+    "paragon2",
+    "tampa3",
+    "potty",
+    "bearcat",
+    "annihilator3",
+    "ardent",
+    "monster5",
+    "monster4",
+    "monster3",
+    "marshall",
+    "insurgent2",
+    "insurgent",
+    "dune2",
+    "bruiser3",
+    "bruiser2",
+    "bulldozer",
+    "terbyte",
+    "baletrailer",
+    "docktrailer",
+    "freighttrailer",
+    "graintrailer",
+    "proptrailer",
+    "tr2",
+    "tr4",
+    "trflat",
+    "tvtrailer",
+    "tanker",
+    "tanker2",
+    "trailerlarge",
+    "trailerlogs",
+    "trailers",
+    "trailers2",
+    "trailers3",
+    "trailers4",
+    "airbus",
+    "brickade",
+    "bus",
+    "pbus2",
+    "rallytruck",
+    "trash",
+    "trash2",
+    "wastelander",
+    "zr3803",
+    "ripley",
+    "scrap",
+    "utillitruck2",
+    "boxville",
+    "boxville2",
+    "zr380",
+    "slamvan6",
+    "seasparrow3",
+    "luxor",
+    "luxor2",
+    "nimbus",
+    "shamal",
+    "schafter5",
+    "hauler2",
+    "phantom",
+    "packer",
+    "phantom3",
+    "biff",
+    "issi6",
+    "issi5",
+    "issi4",
+    "issi3",
+    "riot",
+    "tiptruck",
+    "tiptruck2",
+    "vetir",
+    "imperator2",
+    "firetruk",
+    "brandweer4",
+    "brandweer3",
+    "kuruma",
+    "cog552",
+    "brandweer",
+    "zhaba",
+    "hauler",
+    "freightcar",
+    "brutus2",
+    "mule4",
+    "unarmed",
+    "baller6",
+    "pounder2",
+    "barracks",
+    "barracks2",
+    "barracks3",
+    "dominator4",
+    "dominator5",
+    "dominator6",
+    "impaler4",
+    "slamvan5",
+    "baller5",
+    "seabreeze",
+    "cognoscenti2",
+    "schafter6",
+    "xls2",
+    "dukes2",
+    "impaler2",
+    "impaler3",
+    "impaler4",
+    "imperator",
+    "imperator2",
+    "imperator3",
+    "slamvan2",
+    "slamvan3",
+    "slamvan4",
+    "brutus3",
+    "viseris",
+    "revolter",
+    "comet4",
+    "ferrari430",
+    "PoliceT",
+    "jb7002",
 }
