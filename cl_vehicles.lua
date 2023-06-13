@@ -24,7 +24,9 @@ function checkCar(car)
 
 			if isCarBlacklisted(carModel) then
 				_DeleteEntity(car)
-				ShowMessage(CH.VehicleIsBlacklisted)
+				if CH.ShowNotifyOnDelete then
+				ShowMessage(CH.vBlacklisted)
+				end
 			end
 		end
 	end
@@ -55,7 +57,7 @@ RegisterCommand(CH.BlacklistPrintBlacklistedVehicles, function(source, args, raw
 	if allowedToUseveh then
 		CheckVehicleBlacklist()
 	else
-		ShowMessage(CH.BlacklistNoPerms)
+		ShowMessage(CH.NoPerms)
 	end
 end)
 
@@ -63,13 +65,13 @@ RegisterCommand(CH.BlacklistBypassVehiclesCommand, function(source, args, rawCom
 	if allowedToUseveh then
 		if not bypassveh then
 			bypassveh = true
-			ShowMessage(CH.BlacklistBypassVehON)
+			ShowMessage(CH.vBypassOn)
 		elseif bypassveh then
 			bypassveh = false
-			ShowMessage(CH.BlacklistBypassVehOFF)
+			ShowMessage(CH.vBypassOff)
 		end
 	else
-		ShowMessage(CH.BlacklistNoPerms)
+		ShowMessage(CH.NoPerms)
 	end
 end)
 
