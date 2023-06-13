@@ -31,7 +31,7 @@ RegisterCommand(CH.BlacklistPrintBlacklistedWeapons, function(source, args, rawC
 	if allowedToUsewep then
 		CheckWeaponBlacklist()
 	else
-		ShowMessage(CH.BlacklistNoPerms)
+		ShowMessage(CH.NoPerms)
 	end
 end)
 
@@ -39,13 +39,13 @@ RegisterCommand(CH.BlacklistBypassWeaponsCommand, function(source, args, rawComm
 	if allowedToUsewep then
 		if not bypasswep then
 			bypasswep = true
-			ShowMessage(CH.BlacklistBypassWepON)
+			ShowMessage(CH.wBypassOn)
 		elseif bypasswep then
 			bypasswep = false
-			ShowMessage(CH.BlacklistBypassWepOFF)
+			ShowMessage(CH.wBypassOff)
 		end
 	else
-		ShowMessage(CH.BlacklistNoPerms)
+		ShowMessage(CH.NoPerms)
 	end
 end)
 
@@ -58,7 +58,9 @@ Citizen.CreateThread(function()
 			if not bypasswep then
 				if isWeaponBlacklisted(weapon) then
 					RemoveWeaponFromPed(playerPed, weapon)
-					ShowMessage(CH.WeaponIsBlacklisted)
+					if CH.ShowNotifyOnDelete then
+					ShowMessage(CH.wBlacklisted)
+					end
 				end
 			end
 		end
