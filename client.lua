@@ -49,22 +49,6 @@ function _DeleteEntity(entity)
 	Citizen.InvokeNative(0xAE3CBE5BF394C9C9, Citizen.PointerValueIntInitialized(entity))
 end
 
-function CheckVehicleBlacklist()
-	cars = CH.BlacklistVehicles
-	for i, cars in pairs(cars) do
-		print("- "..cars)
-	end
-end
-
--- Prints blacklisted vehicles in client console.
-RegisterCommand(CH.BlacklistPrintBlacklistedVehicles, function(source, args, rawCommand)
-	if allowedToUseveh then
-		CheckVehicleBlacklist()
-	else
-		ShowMessage(CH.NoPerms)
-	end
-end)
-
 RegisterCommand(CH.BlacklistBypassVehiclesCommand, function(source, args, rawCommand)
 	if allowedToUseveh then
 		bypassveh = not bypassveh
@@ -97,22 +81,6 @@ function isWeaponBlacklisted(model)
 	end
 	return false
 end
-
-function CheckWeaponBlacklist()
-	weapons = CH.BlacklistWeapons
-	for i, weapons in pairs(weapons) do
-		print("- "..weapons)
-	end
-end
-
--- Prints blacklisted weapons in client console.
-RegisterCommand(CH.BlacklistPrintBlacklistedWeapons, function(source, args, rawCommand)
-	if allowedToUsewep then
-		CheckWeaponBlacklist()
-	else
-		ShowMessage(CH.NoPerms)
-	end
-end)
 
 RegisterCommand(CH.BlacklistBypassWeaponsCommand, function(source, args, rawCommand)
 	if allowedToUsewep then

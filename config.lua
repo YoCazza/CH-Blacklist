@@ -18,8 +18,6 @@ CH.CheckTime = 250 -- The time for checking if a player has a blacklisted weapon
 --░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░╚═════╝░
 CH.BlacklistBypassVehiclesCommand = "bypass-v" -- With this command you have a bypass so you can drive in every blacklisted vehicle.
 CH.BlacklistBypassWeaponsCommand = "bypass-w" -- With this command you have a bypass so you can shoot every blacklisted weapon.
-CH.BlacklistPrintBlacklistedVehicles = "print-v" -- With this command all the blacklisted vehicles will be printed in you F8 console.
-CH.BlacklistPrintBlacklistedWeapons = "print-w" -- With this command all the blacklisted weapons will be printed in you F8 console.
 
 --██╗░░░░░░█████╗░███╗░░██╗░██████╗░██╗░░░██╗░█████╗░░██████╗░███████╗
 --██║░░░░░██╔══██╗████╗░██║██╔════╝░██║░░░██║██╔══██╗██╔════╝░██╔════╝
