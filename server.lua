@@ -1,4 +1,4 @@
--- Ace perms permission checker for vehicles
+-- Check ace permissions
 RegisterServerEvent("ch_checkperms_veh:isAllowed")
 AddEventHandler("ch_checkperms_veh:isAllowed", function()
     if IsPlayerAceAllowed(source, CH.AcePermsVehicle) then
@@ -8,7 +8,6 @@ AddEventHandler("ch_checkperms_veh:isAllowed", function()
     end
 end)
 
--- Ace perms permission checker for weapons
 RegisterServerEvent("ch_checkperms_wep:isAllowed")
 AddEventHandler("ch_checkperms_wep:isAllowed", function()
     if IsPlayerAceAllowed(source, CH.AcePermsWeapon) then
@@ -18,16 +17,18 @@ AddEventHandler("ch_checkperms_wep:isAllowed", function()
     end
 end)
 
--- If you have changed the folder name you can delete the code below.
+-- If you already changed the folder name you can remove this code.
+local fnames = {'CH-Blacklist', 'Blacklist', 'blacklist', 'CH-Blacklist-main'}
 AddEventHandler('onResourceStart', function(resourceName)
-    if (GetCurrentResourceName() ~= resourceName) then
-      return
+    if GetCurrentResourceName() ~= resourceName then
+        return
     end
-    fnames = {'CH-Blacklist', 'Blacklist', 'blacklist', 'black-list', 'CH-Blacklist-main'}
     Wait(5000)
     for i, fname in ipairs(fnames) do
-    if resourceName == fname then
-        print("[^1WARNING^0] : We recommend changing the folder name, hackers can easily view folders and stop them, change the folder name to something unique that will not be noticed.")
-    end
+        if resourceName == fname then
+            print("[^1WARNING^0]: The folder name '" .. resourceName .. "' contains the word 'blacklist'.")
+            print("[^1WARNING^0]: We recommend changing the folder name to something unique that will not be noticed.")
+            break
+        end
     end
 end)
