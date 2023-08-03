@@ -16,7 +16,7 @@ This FiveM resource is an **optimized version** of [kheire007/esx_blacklist](htt
 ## **To-do:**
 
 * Add a option for ox_inventory to remove weapon item.
-* Rewrite vehicle and weapon client
+* ~~Rewrite vehicle and weapon client~~
 
 ### **How to use:**
 
@@ -31,7 +31,10 @@ add_principal identifier.discord:YOURDISCORDID group.admin
 add_ace group.admin CH.Bypass allow
 
 ```
-Standard command if CH.Bypass is allowed on your group: /toggleb
+
+Standard commands:
+Bypass blacklisted vehicles: /bypass-v
+Bypass blacklisted weapons: /bypass-w
 
 ### **Video Showcase:**
-[YouTube - CH-Blacklist](https://www.youtube.com/watch?v=zqaLESQZ98o)
+[YouTube - CH-Blacklist](https://www.youtube.com/watch?v=zqaLESQZ98o) (outdated)
