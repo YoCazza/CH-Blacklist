@@ -32,9 +32,9 @@ add_ace group.admin CH.Bypass allow
 
 ```
 
-Standard commands:
-Bypass blacklisted vehicles: /bypass-v
-Bypass blacklisted weapons: /bypass-w
+### Standard commands:
+* Bypass blacklisted vehicles: /bypass-v
+* Bypass blacklisted weapons: /bypass-w
 
 ### **Video Showcase:**
 [YouTube - CH-Blacklist](https://www.youtube.com/watch?v=zqaLESQZ98o) (outdated)
