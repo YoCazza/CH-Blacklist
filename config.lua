@@ -1,25 +1,18 @@
 CH = {
-	-- Options Ace perms and checktime.
-    AcePermsVehicle = "CH.bypassveh", -- Your ace perms vehicle bypass name.
-    AcePermsWeapon = "CH.bypasswep", -- Your ace perms weapon bypass name.
-    CheckTime = 250, -- The time for checking if a player has a blacklisted weapon / vehicle.
+    -- Permissions and timing configuration
+    AceName = "car.bypass",      -- Ace permission for bypassing vehicle blacklist
+    CheckTime = 250,                  -- Interval (ms)
+    Command = "bypass-blacklist",     -- Command to toggle blacklist bypass
 
-    -- Commands
-    BlacklistBypassVehiclesCommand = "bypass-v", -- With this command you have a bypass so you can drive in every blacklisted vehicle.
-    BlacklistBypassWeaponsCommand = "bypass-w", -- With this command you have a bypass so you can shoot every blacklisted weapon.
+    -- Notification messages
+    LangBypassOn = "Bypass has been enabled",
+    LangBypassOff = "Bypass has been disabled",
+    LangNoPermissions = "You dont have permissions for this command!", 
+    LangVehicleBlacklisted = "This vehicle is blacklisted",
+    LangWeaponBlacklisted = "This weapon is blacklisted",
 
-    -- Language.
-    ShowNotifyOnDelete = true, -- Show notifications on weapon / vehicle delete?
-    vBypassOn = "Vehicle bypass on",
-    vBypassOff = "Vehicle bypass off",
-    wBypassOn = "Weapon bypass on",
-    wBypassOff = "Weapon bypass off",
-    NoPerms = "You dont have permissions for this command!",
-    vBlacklisted = "This vehicle is blacklisted",
-    wBlacklisted = "This weapon is blacklisted",
-
-    -- Blacklist Weapons.
-    BlacklistWeapons = {
+    -- List of blacklisted weapons
+    Weapons = {
         "WEAPON_EMPLAUNCHER",
         "WEAPON_RAYMINIGUN",
         "WEAPON_COMPACTLAUNCHER",
@@ -40,13 +33,14 @@ CH = {
         "WEAPON_RAYPISTOL",
         "WEAPON_FLAREGUN",
         "WEAPON_FLARE",
-        --"add more",
+        -- Add more weapons as needed
     },
 
-    -- Blacklist Vehicles.
-    BlacklistVehicles = {
+    -- List of blacklisted vehicles
+    Vehicles = {
         "jet",
-        "lazer",
-        --"add more",
+        "rhino",
+        "apc",
+        -- Add more vehicles as needed
     }
 }
