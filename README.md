@@ -1,40 +1,34 @@
-![blacklistpreviewbig|690x388](https://media.discordapp.net/attachments/1115592251767271457/1115592507879850044/blacklist_banner.png?width=1193&height=671)
+Here's a revised version of your GitHub README, written with simpler and more engaging language:
+
+
+![CH-Blacklist Preview|690x388](https://i.imgur.com/eIxdkxo.png)
 # CH-Blacklist
-## ⚠️ If you use this FiveM Resource i highly recommend to change the folder name to something unique that will not be noticed.
-This FiveM resource is an **optimized version** of [kheire007/esx_blacklist](https://github.com/kheire007/esx_blacklist), my version does not include the pedblacklist and is more advanced to bypass the blacklist with a command.
 
-## **Information:**
+**⚠️ This resource is now using [ox_lib](https://github.com/overextended/ox_lib)**
 
-* Easy configuration with instructions in config.lua
-* Blacklist vehicles and weapons.
-* Client Resmon idle: 0.00ms.
-* Client Resmon on vehicle or weapon remove: 0.01ms
-* Checks every 0.25 seconds (changeable in config) if a player has a blacklisted weapon equipped.
-* Checks every 0.25 seconds (changeable in config) if a player is a driver in a blacklisted vehicle.
-* **This resource is working with ESX and Ace Perms.**
+This is an optimized version of [kheire007/esx_blacklist](https://github.com/kheire007/esx_blacklist), this version is more advanced and can be bypassed with a command for Staff purposes.
 
-## **To-do:**
+## **Features:**
+- Simple setup with detailed instructions in `config.lua`.
+- Ability to blacklist specific vehicles and weapons.
+- Minimal performance impact: Client Resmon idle at 0.00ms.
+- Frequent checks (every 0.25 seconds, adjustable in config) for:
+  - Blacklisted weapons equipped by players.
+  - Players driving blacklisted vehicles.
+- Compatible with ESX framework and ox_lib.
 
-* Add a option for ox_inventory to remove weapon item.
-* ~~Rewrite vehicle and weapon client~~
+### **Usage:**
 
-### **How to use:**
-
-This Resource is using Ace Perms, you can change the name in the config.
+This resource utilizes Ace Permissions for administrative controls. Customize permission settings in the `config.lua` file:
 
 ```lua
-
--- this is an example for permission setup
-
+-- Paste this in your server.cfg to make the permissions work
 add_principal identifier.discord:YOURDISCORDID group.admin
-
-add_ace group.admin CH.Bypass allow
-
+add_ace group.admin car.bypass allow
 ```
 
-### Standard commands:
-* Bypass blacklisted vehicles: /bypass-v
-* Bypass blacklisted weapons: /bypass-w
+### **Commands:**
+- Use `/bypass-blacklist` for administrative purposes only. This command allows staff to bypass the blacklist checks.
 
-### **Video Showcase:**
-[YouTube - CH-Blacklist](https://www.youtube.com/watch?v=zqaLESQZ98o) (outdated)
+### **Demo Video:**
+Check out the [YouTube showcase of CH-Blacklist](https://www.youtube.com/watch?v=zqaLESQZ98o) (note: this video is outdated).
