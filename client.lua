@@ -1,44 +1,64 @@
-local allowedToUsevehveh = false
-local bypassveh = false
-local allowedToUsewepwep = false
-local bypasswep = false
+local HasPermissions = false
+local bypass = false
 
 Citizen.CreateThread(function()
-	TriggerServerEvent("ch_checkperms_veh:isAllowed")
-	TriggerServerEvent("ch_checkperms_wep:isAllowed")
+	TriggerServerEvent("blacklist:isAllowed")
 end)
 
-RegisterNetEvent("ch_checkperms_veh.returnIsAllowed")
-AddEventHandler("ch_checkperms_veh.returnIsAllowed", function(isAllowed)
-    allowedToUseveh = isAllowed
+RegisterNetEvent("blacklist:isAllowed:return")
+AddEventHandler("blacklist:isAllowed:return", function(isAllowed)
+    HasPermissions = isAllowed
 end)
 
-RegisterNetEvent("ch_checkperms_wep.returnIsAllowed")
-AddEventHandler("ch_checkperms_wep.returnIsAllowed", function(isAllowed)
-    allowedToUsewep = isAllowed
+RegisterCommand(CH.Command, function(source, args, rawCommand)
+	if HasPermissions then
+		bypass = not bypass
+		lib.notify({ title = 'Blacklist Notification', description = bypass and CH.LangBypassOn or CH.LangBypassOff, type = bypass and 'success' or 'info' })
+	else
+		lib.notify({ title = 'Blacklist Notification', description = CH.LangNoPermissions, type = 'info' })
+	end
 end)
 
-function ShowMessage(text)
-	BeginTextCommandThefeedPost("STRING")
-	AddTextComponentSubstringPlayerName(text)
-	EndTextCommandThefeedPostTicker(true, false)
-end
+Citizen.CreateThread(function()
+    while true do
+        Wait(CH.CheckTime)
+        local playerPed = PlayerPedId()
+		local _, weapon = GetCurrentPedWeapon(playerPed, true)
+        if not bypass then
+            if IsPedInAnyVehicle(playerPed, false) then
+                local vehicle = GetVehiclePedIsIn(playerPed, false)
+                if GetPedInVehicleSeat(vehicle, -1) == playerPed then
+                    checkCar(vehicle)
+                end
+            end
+
+            if isWeaponBlacklisted(weapon) then
+                RemoveWeaponFromPed(playerPed, weapon)
+                lib.notify({ type = 'info', description = CH.LangWeaponBlacklisted })
+            end
+        end
+    end
+end)
 
 function checkCar(car)
-	if not bypassveh and car then
-		local carModel = GetEntityModel(car)
-		if isCarBlacklisted(carModel) then
-			DeleteEntity(car)
-			if CH.ShowNotifyOnDelete then
-				ShowMessage(CH.vBlacklisted)
-			end
-		end
-	end
+    if car and isCarBlacklisted(GetEntityModel(car)) then
+        DeleteEntity(car)
+        lib.notify({ type = 'ban', description = CH.LangVehicleBlacklisted })
+    end
 end
 
 function isCarBlacklisted(model)
-	for _, blacklistedCar in pairs(CH.BlacklistVehicles) do
+	for _, blacklistedCar in pairs(CH.Vehicles) do
 		if model == GetHashKey(blacklistedCar) then
+			return true
+		end
+	end
+	return false
+end
+
+function isWeaponBlacklisted(model)
+	for _, blacklistedWeapon in pairs(CH.Weapons) do
+		if model == GetHashKey(blacklistedWeapon) then
 			return true
 		end
 	end
@@ -48,63 +68,3 @@ end
 function _DeleteEntity(entity)
 	Citizen.InvokeNative(0xAE3CBE5BF394C9C9, Citizen.PointerValueIntInitialized(entity))
 end
-
-RegisterCommand(CH.BlacklistBypassVehiclesCommand, function(source, args, rawCommand)
-	if allowedToUseveh then
-		bypassveh = not bypassveh
-		ShowMessage(bypassveh and CH.vBypassOn or CH.vBypassOff)
-	else
-		ShowMessage(CH.NoPerms)
-	end
-end)
-
-Citizen.CreateThread(function()
-	while true do
-		Wait(CH.CheckTime)
-		if IsPedInAnyVehicle(GetPlayerPed(-1)) then
-		v = GetVehiclePedIsIn(playerPed, false)
-		end
-		playerPed = GetPlayerPed(-1)
-		if playerPed and v then
-		if GetPedInVehicleSeat(v, -1) == playerPed then
-			checkCar(GetVehiclePedIsIn(playerPed, false))
-			end
-		end
-	end
-end)
-
-function isWeaponBlacklisted(model)
-	for _, blacklistedWeapon in pairs(CH.BlacklistWeapons) do
-		if model == GetHashKey(blacklistedWeapon) then
-			return true
-		end
-	end
-	return false
-end
-
-RegisterCommand(CH.BlacklistBypassWeaponsCommand, function(source, args, rawCommand)
-	if allowedToUsewep then
-		bypasswep = not bypasswep
-		ShowMessage(bypasswep and CH.wBypassOn or CH.wBypassOff)
-	else
-		ShowMessage(CH.NoPerms)
-	end
-end)
-
-Citizen.CreateThread(function()
-	while true do
-		Wait(CH.CheckTime)
-		playerPed = GetPlayerPed(-1)
-		if playerPed then
-			nothing, weapon = GetCurrentPedWeapon(playerPed, true)
-			if not bypasswep then
-				if isWeaponBlacklisted(weapon) then
-					RemoveWeaponFromPed(playerPed, weapon)
-					if CH.ShowNotifyOnDelete then
-					ShowMessage(CH.wBlacklisted)
-					end
-				end
-			end
-		end
-	end
-end)
