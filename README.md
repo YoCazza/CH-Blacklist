@@ -1,6 +1,3 @@
-Here's a revised version of your GitHub README, written with simpler and more engaging language:
-
-
 ![CH-Blacklist Preview|690x388](https://i.imgur.com/eIxdkxo.png)
 # CH-Blacklist
 
